@@ -26,7 +26,14 @@ _OnTextChanged = (e) =>{
     this.setState(() => ({suggestions, text :value}));
 }
 
-sug
+_suggestionSelected (value) {
+    this.setState(()=>({
+        text: value,
+        suggestions: []
+    }))
+}
+
+
 
 renderSuggestions () {
     const {suggestions} = this.state;
@@ -35,7 +42,7 @@ renderSuggestions () {
     }
     return(
     <ul>
-    {suggestions.map((item)=> <li>{item}</li>)}
+    {suggestions.map((item)=> <li onClick={()=> this._suggestionSelected(item)}>{item}</li>)}
     </ul>)
     
 }
