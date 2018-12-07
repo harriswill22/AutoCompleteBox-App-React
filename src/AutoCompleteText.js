@@ -10,6 +10,8 @@ class AutoCompleteText extends React.Component {
         ];
         this.state = {  
             suggestions:[], 
+            text: '',
+
         };
     }
 
@@ -19,23 +21,31 @@ _OnTextChanged = (e) =>{
     let suggestions =[];
     if(value.length > 0){
     const regex = new RegExp(`^${value}`, 'i');
-    suggestions = this.items.sort().filter(v =>v.test(regex));
+    suggestions = this.items.sort().filter(v =>regex.test(v));
     }
-    this.setState(() => ({suggestions}));
+    this.setState(() => ({suggestions, text :value}));
 }
+
+sug
 
 renderSuggestions () {
     const {suggestions} = this.state;
     if (suggestions.length === 0){
         return null;
     }
+    return(
+    <ul>
+    {suggestions.map((item)=> <li>{item}</li>)}
+    </ul>)
+    
 }
 
     render() { 
+        const{text} = this.state;
         return ( <div>
-            <input onChange={this._OnTextChanged}type="text"/>
+            <input value={text} onChange={this._OnTextChanged}type="text"/>
             <ul>
-            {this.items.map((item)=> <li>{item}</li>)}
+            {this.renderSuggestions()}
             </ul>
             </div> );
     }
