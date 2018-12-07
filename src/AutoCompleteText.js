@@ -3,10 +3,29 @@ class AutoCompleteText extends React.Component {
     constructor(props){
         super(props)
         this.items =[
-            'bike',
-            'bike',
-            'bike',
-            'bike',
+            'Alabama',
+            'Alaska',
+            'Arizona',
+            'California',
+            'Colorado',
+            'Connecticut',
+            'Delaware',
+            'Florida',
+            'Georgia',
+            'Hawaii',
+            'Idaho',
+            'Illinois',
+            'Indiana',
+            'Iowa',
+            'Kansas',
+            'Kentucky',
+            'Louisiana',
+            'Maine',
+            'Maryland',
+            'Massachusetts',
+            'Michigan',
+            'Minnesota',
+            'Mississippi',
         ];
         this.state = {  
             suggestions:[], 
